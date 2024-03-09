@@ -133,7 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'fa-ir'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Tehran'
 
@@ -170,6 +170,9 @@ REST_FRAMEWORK = {
 }
 
 # djoser setting
-# DJOSER = {
-#     'USER_CREATE_PASSWORD_RETYPE': True,
-# }
+DJOSER = {
+    # 'USER_CREATE_PASSWORD_RETYPE': True,
+    'SERIALIZERS': {
+        'user_create': 'core.api.v1.serializers.UserCreateSerializer',
+    },
+}
