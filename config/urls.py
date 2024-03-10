@@ -32,6 +32,8 @@ urlpatterns = [
     # for djoser end points
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
+    # tinymce rich text editor
+    path('tinymce/', include('tinymce.urls')),
 ]
 
 

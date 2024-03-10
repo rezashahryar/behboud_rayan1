@@ -17,6 +17,7 @@ drf-yasg==1.21.7
 idna==3.6
 inflection==0.5.1
 jdatetime==4.1.1
+mysqlclient==2.2.4
 oauthlib==3.2.2
 packaging==23.2
 pillow==10.2.0

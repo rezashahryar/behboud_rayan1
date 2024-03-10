@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'djoser',
     'django_jalali',
     'jalali_date',
+    'tinymce',
 
     # local apps
     'core.apps.CoreConfig',
@@ -105,8 +106,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'behboud_rayan',
+        'HOST': 'localhost',
+        'USER': 'postgres',
+        'PASSWORD': 'admin',
     }
 }
 

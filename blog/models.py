@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 from tinymce.models import HTMLField
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
-
+from django_jalali.db.models import jDateTimeField
 # Create your models here.
 
 
@@ -38,14 +38,14 @@ class PostManager(models.Manager):
 
 class Post(models.Model):
     title = models.CharField(_('عنوان'), max_length=255)
-    description = HTMLField(verbose_name=_('توضیحات'))
+    description = HTMLField()
     image = models.ImageField(_('عکس'), upload_to='post/image/%Y/%m/%d/', default='04.jpg')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='posts', verbose_name=_('دسته بندی'))
     tag = models.ManyToManyField(Tag, related_name='posts', blank=True, verbose_name=_('بر چسب'))
     slug = models.SlugField(_('مسیر یو ار ال'), null=True, blank=True, unique=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='posts', null=True, blank=True, verbose_name=_('نویسنده'))
 
-    published_date = models.DateTimeField(_('تاریخ انتشار'), null=True, blank=True)
+    published_date = jDateTimeField()
     status = models.BooleanField(default=True)
 
     counted_views = models.IntegerField(_('تعداد بازدید'), default=0)
